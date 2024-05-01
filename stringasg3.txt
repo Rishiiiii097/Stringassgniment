@@ -1,0 +1,90 @@
+1. What is Mutable String in Java Explain with an example?
+ANS:-In Java, strings are immutable by default, meaning once a string object is created, its state cannot be changed. However, there is no built-in mutable string class in the Java standard library. The closest thing to a mutable string in Java is the StringBuilder class, which provides a mutable sequence of characters.
+ExAMPLE:-
+public class MutableStringExample {
+    public static void main(String[] args) {
+        StringBuilder mutableString = new StringBuilder("Hello");
+        System.out.println("Original String: " + mutableString);
+
+        // Append characters to the string
+        mutableString.append(" World");
+        System.out.println("After Appending: " + mutableString);
+
+        // Insert characters at a specific position
+        mutableString.insert(5, ",");
+        System.out.println("After Inserting: " + mutableString);
+    }
+}
+
+
+2. WAP to reverse a String?
+INPUT:“PWSKILLS”
+OUTPUT:“SLLIKSPW”
+ANS:-public class StringReversal {
+    public static void main(String[] args) {
+        String input = "PWSKILLS";
+        String reversed = reverseString(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed);
+    }
+
+    public static String reverseString(String str) {
+        StringBuilder reversedString = new StringBuilder();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversedString.append(str.charAt(i));
+        }
+        return reversedString.toString();
+    }
+}
+
+3.. WAP to reverse a sentence while preserving the position?
+Input: ThinkTwice
+output:“kniht eciwt”
+Ans:-public class SentenceReversal {
+    public static void main(String[] args) {
+        String input = "ThinkTwice";
+        String reversedSentence = reverseSentence(input);
+        System.out.println("Original Sentence: " + input);
+        System.out.println("Reversed Sentence: " + reversedSentence);
+    }
+
+    public static String reverseSentence(String sentence) {
+        String[] words = sentence.split("\\s+");
+        StringBuilder reversedSentence = new StringBuilder();
+        for (String word : words) {
+            reversedSentence.append(reverseWord(word)).append(" ");
+        }
+        return reversedSentence.toString().trim();
+    }
+
+    public static String reverseWord(String word) {
+        StringBuilder reversedWord = new StringBuilder();
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversedWord.append(word.charAt(i));
+        }
+        return reversedWord.toString();
+    }
+}
+
+4.WAP to sort a String Alphabatically?
+Ans:-import java.util.Arrays;
+
+public class StringAlphabeticalSort {
+    public static void main(String[] args) {
+        String input = "HelloWorld";
+        String sortedString = sortString(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Alphabetically Sorted String: " + sortedString);
+    }
+
+    public static String sortString(String str) {
+        // Convert the string to a character array
+        char[] charArray = str.toCharArray();
+
+        // Sort the character array
+        Arrays.sort(charArray);
+
+        // Convert the sorted character array back to a string
+        return new String(charArray);
+    }
+}
